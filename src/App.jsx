@@ -9,11 +9,13 @@ import CustomAlert from "./CustomAlert";
 import Product from "./pages/Product/Product";
 import ListProducts from "./pages/Product/ListProducts";
 import ErrorBoundary from "./ErrorBondary";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <div className="cip-container">
       <BrowserRouter>
+      <ScrollToTop/>
         <SubNav />
         <NavBar />
         <CustomAlert />
