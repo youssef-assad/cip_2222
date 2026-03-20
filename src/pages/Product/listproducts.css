@@ -2,6 +2,7 @@
 .lp-page {
   min-height: 100vh;
   background: #f7f9fc;
+  overflow-x: hidden;
 }
 
 /* ─── Header ────────────────────────────────────────────── */
@@ -504,7 +505,10 @@
 
 /* ─── Responsive ────────────────────────────────────────── */
 @media (max-width: 900px) {
-  .lp-body { grid-template-columns: 1fr; padding: 1.5rem 5%; }
+  .lp-body {
+    grid-template-columns: 1fr;
+    padding: 1rem 4%;
+  }
 
   .lp-sidebar {
     position: fixed;
@@ -524,9 +528,64 @@
 }
 
 @media (max-width: 600px) {
-  .lp-header { padding: 1.5rem 5% 1rem; gap: 1rem; }
-  .lp-search { max-width: 100%; }
-  .lp-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
-  .lp-grid--list .pc { height: 90px; }
-  .lp-grid--list .pc-img-wrap { width: 90px; height: 90px; }
+  /* Header */
+  .lp-header {
+    padding: 1rem 4%;
+    gap: 0.75rem;
+  }
+
+  .lp-header-text h1 { font-size: 1.4rem; }
+
+  .lp-search {
+    width: 100%;
+    max-width: 100%;
+    order: 3;           /* push below title row */
+    flex-basis: 100%;
+  }
+
+  .lp-view-toggle { margin-left: auto; }
+
+  /* Body */
+  .lp-body { padding: 0.75rem 4%; }
+
+  /* Mobile bar */
+  .lp-mobile-bar { gap: 0.5rem; margin-bottom: 0.75rem; }
+
+  .lp-pills { gap: 5px; }
+
+  .lp-pill { font-size: 0.75rem; padding: 0.3rem 0.7rem; }
+
+  /* Grid */
+  .lp-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  /* Card — horizontal layout on mobile */
+  .pc {
+    flex-direction: row;
+    height: 110px;
+  }
+
+  .pc-img-wrap {
+    width: 120px;
+    height: 110px;
+    flex-shrink: 0;
+    border-radius: 14px 0 0 14px;
+  }
+
+  .pc-overlay { display: none; }
+
+  .pc-body { padding: 0.7rem 0.85rem; justify-content: center; }
+
+  .pc-body h3 { font-size: 0.92rem; -webkit-line-clamp: 1; overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; }
+
+  .pc-body p  { font-size: 0.78rem; -webkit-line-clamp: 2; }
+
+  .pc-cat     { font-size: 0.7rem; }
+
+  /* List view same as card on mobile */
+  .lp-grid--list { grid-template-columns: 1fr; }
+  .lp-grid--list .pc         { height: 110px; }
+  .lp-grid--list .pc-img-wrap { width: 120px; height: 110px; }
 }
