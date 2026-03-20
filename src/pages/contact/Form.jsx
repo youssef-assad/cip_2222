@@ -1,123 +1,106 @@
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+const fields = [
+  { name: "from_name",    placeholder: "Votre nom",        type: "text",  required: true,  half: true  },
+  { name: "from_email",   placeholder: "Votre email",      type: "email", required: true,  half: true  },
+  { name: "phone_from",   placeholder: "Téléphone",        type: "text",  required: false, half: true  },
+  { name: "from_subject", placeholder: "Sujet",            type: "text",  required: false, half: true  },
+];
+
+function Field({ name, placeholder, type, required, error, icon }) {
+  const [focused, setFocused] = useState(false);
+  const [filled, setFilled]   = useState(false);
+
+  return (
+    <div className={`cf-field ${focused ? "focused" : ""} ${error ? "has-error" : ""}`}>
+      <input
+        type={type}
+        name={name}
+        required={required}
+        placeholder=" "
+        onFocus={() => setFocused(true)}
+        onBlur={(e) => { setFocused(false); setFilled(!!e.target.value); }}
+        onChange={(e) => setFilled(!!e.target.value)}
+      />
+      <label className={filled ? "filled" : ""}>{placeholder}{required && " *"}</label>
+      {error && <span className="cf-error">{error}</span>}
+    </div>
+  );
+}
 
 function Form() {
-  const form = useRef();
-  const [errors, setErrors] = useState({});
+  const form    = useRef();
+  const [errors, setErrors]   = useState({});
+  const [loading, setLoading] = useState(false);
 
-  const notify = (message, type) => toast(message, { type });
-
-  const validateEmail = (email) => {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(String(email).toLowerCase());
+  const validate = () => {
+    const d = new FormData(form.current);
+    const e = {};
+    if (!d.get("from_name"))                                        e.from_name  = "Nom requis";
+    if (!d.get("from_email"))                                       e.from_email = "Email requis";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.get("from_email"))) e.from_email = "Email invalide";
+    if (!d.get("message"))                                          e.message    = "Message requis";
+    if (d.get("phone_from") && isNaN(d.get("phone_from")))         e.phone_from = "Numéro invalide";
+    setErrors(e);
+    return !Object.keys(e).length;
   };
 
-  const validateForm = () => {
-    const formData = new FormData(form.current);
-    let errors = {};
-    if (!formData.get('from_name')) {
-      errors.from_name = 'Name is required';
-    }
-    if (!formData.get('from_email')) {
-      errors.from_email = 'Email is required';
-    } else if (!validateEmail(formData.get('from_email'))) {
-      errors.from_email = 'Email is not valid';
-    }
-    if (!formData.get('message')) {
-      errors.message = 'Message is required';
-    }
-    if (formData.get('phone_from') && isNaN(formData.get('phone_from'))) {
-      errors.phone_from = 'Phone number must be numeric';
-    }
-    setErrors(errors);
-    return Object.keys(errors).length === 0;
-  };
-
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
     e.preventDefault();
-    if (!validateForm()) {
-      notify("Please fill in all required fields correctly", "error");
-      return;
-    }
-
-    emailjs
-      .sendForm("service_v2cyzwd", "template_51nvso5", form.current, {
+    if (!validate()) return;
+    setLoading(true);
+    try {
+      await emailjs.sendForm("service_v2cyzwd", "template_51nvso5", form.current, {
         publicKey: "mAEuoe1jJBiroGTih",
-      })
-      .then(
-        () => {
-          notify("Message envoyée avec success", "success");
-          form.current.reset();
-          setErrors({});
-        },
-        (error) => {
-          console.log("FAILED...", error.text);
-          notify("Failed to send message", "error");
-        }
-      );
+      });
+      toast.success("Message envoyé avec succès !");
+      form.current.reset();
+      setErrors({});
+    } catch {
+      toast.error("Échec de l'envoi. Réessayez.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <form className="contact-form" ref={form} onSubmit={sendEmail}>
-      <ToastContainer
-        position="bottom-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-        className="toaster"
-      />
-      <div className="contact-form-row">
-        <input
-          type="text"
-          name="from_name"
-          placeholder="Your Name.."
-          className="contact-input"
-          required
-        />
-        {errors.from_name && <p className="text-danger">{errors.from_name}</p>}
-        <input
-          type="email"
-          name="from_email"
-          placeholder="* Your Email.."
-          className="contact-input"
-          required
-        />
-      </div>
-        {errors.from_email && <p className="text-danger">{errors.from_email}</p>}
-      <div className="contact-form-row">
-        <input
-          type="text"
-          placeholder="Phone Number"
-          className="contact-input"
-          name="phone_from"
-        />
-        <input
-          type="text"
-          placeholder="Your Subject..."
-          className="contact-input"
-          name="from_subject"
-          />
-      </div>
-          {errors.phone_from && <p className="text-danger">{errors.phone_from}</p>}
-      <textarea
-        placeholder="* Your Message Here"
-        className="contact-textarea"
-        name="message"
-        required
-      ></textarea>
-      {errors.message && <p className="text-danger">{errors.message}</p>}
-      <button type="submit" className="contact-submit-button">
-        Send To us
-      </button>
-    </form>
+    <>
+      <ToastContainer position="bottom-center" autoClose={5000} theme="light" />
+
+      <form className="cf-form" ref={form} onSubmit={sendEmail} noValidate>
+
+        <div className="cf-row">
+          {fields.slice(0, 2).map(f => (
+            <Field key={f.name} {...f} error={errors[f.name]} />
+          ))}
+        </div>
+
+        <div className="cf-row">
+          {fields.slice(2, 4).map(f => (
+            <Field key={f.name} {...f} error={errors[f.name]} />
+          ))}
+        </div>
+
+        {/* Textarea */}
+        <div className={`cf-field cf-textarea-wrap ${errors.message ? "has-error" : ""}`}>
+          <textarea name="message" placeholder=" " rows={5} required />
+          <label>Votre message *</label>
+          {errors.message && <span className="cf-error">{errors.message}</span>}
+        </div>
+
+        <button className={`cf-submit ${loading ? "loading" : ""}`} type="submit" disabled={loading}>
+          {loading ? (
+            <><span className="cf-spinner" /> Envoi en cours…</>
+          ) : (
+            <><i className="icon-paper-plane" /> Envoyer le message</>
+          )}
+        </button>
+
+      </form>
+    </>
   );
 }
 

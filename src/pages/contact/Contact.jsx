@@ -1,75 +1,127 @@
-import React from "react";
+/* eslint-disable react/prop-types */
 import GoogleMap from "../../components/GoogleMap";
-import "./contact.css";
 import Form from "./Form";
-import { Link } from "react-router-dom";
+import "./contact.css";
+import useIntersectionObserver from "../../components/useInterSection";
 
 const contactList = [
   {
-    iconClassName: "icon-location",
-    title: "Office Address",
-    link:"",desc: "Had Soualem",
+    icon: "icon-location",
+    label: "Adresse",
+    value: "Had Soualem, Maroc",
+    link: "https://maps.google.com/?q=Had+Soualem",
+    external: true,
+    color: "var(--red)",
   },
   {
-    iconClassName: "icon-phone",
-    title: "Phone Number",
-    link:"tel:+212661946011"
-    ,desc: "+212 661946011",
+    icon: "icon-phone",
+    label: "Téléphone",
+    value: "+212 661 946 011",
+    link: "tel:+212661946011",
+    color: "#17a34a",
   },
   {
-    iconClassName: "icon-envelope",
-    title: "Send Email",
-    link:"mailto:cip.industrie@gmail.com"
-    ,desc: "cip.industrie@gmail.com",
+    icon: "icon-envelope",
+    label: "Email",
+    value: "cip.industrie@gmail.com",
+    link: "mailto:cip.industrie@gmail.com",
+    color: "var(--blue-clair)",
   },
   {
-    iconClassName: "icon-globe",
-    title: "Our Website",
-    link:"https://cip.ma",desc: "www.cip.ma",
+    icon: "icon-globe",
+    label: "Site web",
+    value: "www.cip.ma",
+    link: "https://cip.ma",
+    external: true,
+    color: "#9333ea",
   },
 ];
 
-function Contact() {
+function ContactCard({ icon, label, value, link, external, color, index }) {
+  const [ref, isVisible] = useIntersectionObserver({ threshold: 0.2 });
   return (
-    <section className="contact-container">
-      <div className="contact-section">
-        <div className="contact-header">
-          <h3 className="contact-subtitle">Contactez-nous</h3>
-          <h2 className="contact-title">
-            Nous sommes toujours impatients d'avoir de vos nouvelles !
-          </h2>
+    <a
+      ref={ref}
+      href={link}
+      className={`contact-card ${isVisible ? "visible" : ""}`}
+      style={{ transitionDelay: `${index * 0.1}s` }}
+      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+    >
+      <div className="contact-card-icon" style={{ background: `${color}18`, color }}>
+        <i className={icon} />
+      </div>
+      <div className="contact-card-text">
+        <span className="contact-card-label">{label}</span>
+        <span className="contact-card-value">{value}</span>
+      </div>
+      <i className="icon-arrow-right contact-card-arrow" />
+    </a>
+  );
+}
+
+function Contact() {
+  const [headerRef, headerVisible] = useIntersectionObserver({ threshold: 0.1 });
+  const [formRef, formVisible] = useIntersectionObserver({ threshold: 0.1 });
+
+  return (
+    <div className="contact-page">
+
+      {/* ── Hero banner ── */}
+      <section className="contact-hero">
+        <div className="contact-hero-bg" aria-hidden="true" />
+        <div ref={headerRef} className={`contact-hero-content ${headerVisible ? "visible" : ""}`}>
+          <span className="contact-eyebrow">Contactez-nous</span>
+          <h1>Parlons de <span>votre projet</span></h1>
+          <p>Notre équipe est disponible pour répondre à toutes vos questions et vous accompagner dans vos projets industriels.</p>
         </div>
-        <div className="contact-content">
-          <div className="map-container">
-            <GoogleMap />
+      </section>
+
+      {/* ── Cards + Map ── */}
+      <section className="contact-main">
+        <div className="contact-cards">
+          {contactList.map((c, i) => (
+            <ContactCard key={c.label} {...c} index={i} />
+          ))}
+        </div>
+
+        <div className="contact-map-wrap">
+          <div className="map-label">
+            <i className="icon-location" /> Had Soualem, Maroc
           </div>
-          <div className="contact-info">
-            {contactList.map((contact, index) => (
-              <div key={index} className="contact-info-item">
+          <GoogleMap />
+        </div>
+      </section>
 
-                <i className={contact.iconClassName}></i>
-                <div className="content-desc" >
-                <h4>{contact.title}</h4>
-                <Link to={contact.link} target="_blank" style={{textDecoration:"none"}} >
-                  <p>{contact.desc}</p>
-                </Link>
-                </div>
+      {/* ── Form ── */}
+      <section
+        ref={formRef}
+        className={`contact-form-section ${formVisible ? "visible" : ""}`}
+      >
+        <div className="contact-form-left">
+          <span className="contact-eyebrow">Formulaire de contact</span>
+          <h2>Prenez contact<br />avec nous</h2>
+          <p>Remplissez le formulaire et notre équipe vous répondra dans les plus brefs délais.</p>
 
+          <div className="form-perks">
+            {[
+              { icon: "icon-clock",     text: "Réponse sous 24h" },
+              { icon: "icon-check",     text: "Devis gratuit" },
+              { icon: "icon-star",      text: "Service personnalisé" },
+            ].map(p => (
+              <div key={p.text} className="form-perk">
+                <i className={p.icon} />
+                <span>{p.text}</span>
               </div>
             ))}
           </div>
         </div>
-      </div>
 
-      <div className="contact-form-container">
-        <h3 className="contact-form-title">Prenez contact avec nous</h3>
-        <h2 className="contact-form-subtitle">
-          Remplissez le formulaire ci-dessous afin que nous puissions mieux vous
-          connaître et mieux connaître vos besoins.
-        </h2>
-        <Form/>
-      </div>
-    </section>
+        <div className="contact-form-right">
+          <Form />
+        </div>
+      </section>
+
+    </div>
   );
 }
 

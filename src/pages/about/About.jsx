@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import Lottie from "lottie-react";
@@ -19,12 +20,12 @@ const stats = [
 ];
 
 const services = [
-  { icon: "icon-wrench",     title: "Chaudronnerie",      desc: "Fabrication de cuves, citernes et équipements sur mesure." },
-  { icon: "icon-bolt",       title: "Électromécanique",   desc: "Installation, maintenance et réparation de systèmes électromécaniques." },
-  { icon: "icon-health",     title: "Mobilier médical",   desc: "Conception de mobilier et équipements pour le secteur médical." },
-  { icon: "icon-settings",   title: "Plasturgie",         desc: "Machines d'injection, mélangeurs et systèmes de convoyeurs." },
-  { icon: "icon-leaf",       title: "Agro-alimentaire",   desc: "Équipements conformes aux normes de l'industrie alimentaire." },
-  { icon: "icon-home",       title: "Décoration",         desc: "Solutions décoratives intérieures et extérieures de qualité." },
+  { icon: "icon-wrench",       title: "Chaudronnerie",      desc: "Fabrication de cuves, citernes et équipements sur mesure." },
+  { icon: "icon-energy",       title: "Électromécanique",   desc: "Installation, maintenance et réparation de systèmes électromécaniques." },
+  { icon: "icon-heart",        title: "Mobilier médical",   desc: "Conception de mobilier et équipements pour le secteur médical." },
+  { icon: "icon-settings",     title: "Plasturgie",         desc: "Machines d'injection, mélangeurs et systèmes de convoyeurs." },
+  { icon: "icon-chemistry",    title: "Agro-alimentaire",   desc: "Équipements conformes aux normes de l'industrie alimentaire." },
+  { icon: "icon-grid",         title: "Décoration",         desc: "Solutions décoratives intérieures et extérieures de qualité." },
 ];
 
 function StatCard({ value, label, index }) {
