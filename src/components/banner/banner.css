@@ -1,11 +1,14 @@
+/* ─── Container ─────────────────────────────────────────── */
 .banner-container {
   width: 100%;
   overflow: hidden;
-  position: relative;
 }
+
 .carousel-item {
   transition: transform 1.5s ease, opacity 1.5s ease !important;
 }
+
+/* ─── Slide layout ──────────────────────────────────────── */
 .carousel-overlay {
   position: relative;
 }
@@ -17,26 +20,17 @@
 
 .overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7); /* Adjust opacity as needed */
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
   z-index: 1;
 }
-.carousel-overlay ul {
-  list-style-type: none;
-  font-size: 1.12rem;
-  font-family:monospace;
-}
 
+/* ─── Caption ───────────────────────────────────────────── */
 .carousel-caption {
   position: relative;
   z-index: 2;
   top: 40%;
-  /* background: rgba(0, 0, 0, 0.5); */
   padding: 20px;
-  /* max-height: 160px; */
   border-radius: 10px;
   text-align: center;
 }
@@ -47,24 +41,25 @@
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
-.carousel-caption p {
-  color: #ddd;
+.carousel-caption ul {
+  list-style: none;
+  padding: 0;
+  font-size: 1.12rem;
+  font-family: monospace;
 }
-.banner-container .carousel-overlay span.span-title {
+
+.banner-container .span-title {
   color: var(--red);
   font-size: 2.1rem;
 }
 
+/* ─── Button ────────────────────────────────────────────── */
 .button-learn-more {
-  /* position: relative; */
+  position: relative;
   padding: 0.5em 0.9em;
   outline: none;
-  text-decoration: none;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
   border: none;
-  /* text-transform: uppercase; */
+  cursor: pointer;
   background-color: #e9c37a;
   border-radius: 3px;
   color: #fff;
@@ -78,28 +73,6 @@
 
 .button-learn-more:hover {
   animation: sh0 0.5s ease-in-out both;
-}
-
-@keyframes sh0 {
-  0% {
-    transform: rotate(0deg) translate3d(0, 0, 0);
-  }
-
-  25% {
-    transform: rotate(7deg) translate3d(0, 0, 0);
-  }
-
-  50% {
-    transform: rotate(-7deg) translate3d(0, 0, 0);
-  }
-
-  75% {
-    transform: rotate(1deg) translate3d(0, 0, 0);
-  }
-
-  100% {
-    transform: rotate(0deg) translate3d(0, 0, 0);
-  }
 }
 
 .button-learn-more:hover span {
@@ -118,37 +91,55 @@
   border-radius: 50%;
   background: #fff;
   opacity: 0;
-  transition: transform 0.15s cubic-bezier(0.02, 0.01, 0.47, 1),
-    opacity 0.15s cubic-bezier(0.02, 0.01, 0.47, 1);
   z-index: -1;
-  transform: translate(100%, -25%) translate3d(0, 0, 0);
+  transform: translate(100%, -25%);
+  transition: transform 0.15s cubic-bezier(0.02, 0.01, 0.47, 1),
+              opacity   0.15s cubic-bezier(0.02, 0.01, 0.47, 1);
 }
 
 .button-learn-more:hover::before,
 .button-learn-more:hover::after {
   opacity: 0.15;
   transition: transform 0.2s cubic-bezier(0.02, 0.01, 0.47, 1),
-    opacity 0.2s cubic-bezier(0.02, 0.01, 0.47, 1);
+              opacity   0.2s cubic-bezier(0.02, 0.01, 0.47, 1);
 }
 
-.button-learn-more:hover::before {
-  transform: translate3d(50%, 0, 0) scale(0.9);
+.button-learn-more:hover::before { transform: translate3d(50%, 0, 0) scale(0.9); }
+.button-learn-more:hover::after  { transform: translate(50%, 0) scale(1.1); }
+
+/* ─── Animations ────────────────────────────────────────── */
+@keyframes sh0 {
+  0%   { transform: rotate(0deg); }
+  25%  { transform: rotate(7deg); }
+  50%  { transform: rotate(-7deg); }
+  75%  { transform: rotate(1deg); }
+  100% { transform: rotate(0deg); }
 }
 
-.button-learn-more:hover::after {
-  transform: translate(50%, 0) scale(1.1);
-}
-
-@media (max-width:700px){
-  .carousel-caption {
-    position: relative;
-    z-index: 2;
-    top: 25%;
-    /* background: rgba(0, 0, 0, 0.5); */
-    padding: 20px;
-    /* max-height: 160px; */
-    border-radius: 10px;
-    text-align: center;
+/* ─── Responsive ────────────────────────────────────────── */
+@media (max-width: 700px) {
+  .banner-image {
+    height: 60vh;
   }
-  
+
+  .carousel-caption {
+    top: 20%;
+    padding: 12px;
+  }
+
+  .carousel-caption h3 {
+    font-size: 1.3rem;
+  }
+
+  .banner-container .span-title {
+    font-size: 1.4rem;
+  }
+
+  .carousel-caption ul {
+    font-size: 0.9rem;
+  }
+
+  .button-learn-more {
+    font-size: 15px;
+  }
 }
