@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import  { useRef } from "react";
 import "./about.css";
 import image from "../../../public/logos/cip_logo.jpg";
 import play from "../../assets/animations/play1.json";
