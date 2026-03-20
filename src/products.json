@@ -32,6 +32,76 @@
         "/products/image2.jpg",
         "/products/image2.jpg"
       ]
-    }
+    }, {
+    "id": 10,
+    "title": "Bouteille Jus d'Orange — Édition Spéciale",
+    "desc": "Bouteille PET transparente de forme élégante et distinctive, conçue spécialement pour le conditionnement de jus de fruits frais. Sa forme sculptée et son bouchon blanc garantissent une présentation premium sur les rayons. Idéale pour les producteurs de jus artisanaux et industriels.",
+    "categorie": "agro",
+    "secteur": "Agro-alimentaire",
+    "images": [
+      "/products/bottle_orange_juice.jpeg",
+      "/products/bottle_orange_juice2.jpeg"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Bouteille PET Décorative — Forme Gourde",
+    "desc": "Bouteille PET cristal à relief décoratif avec motifs en relief sur toute la surface. Bouchon blanc sécurisé. Sa forme originale en deux parties superposées la distingue sur le marché. Convient pour jus, sirops, huiles et produits alimentaires liquides.",
+    "categorie": "agro",
+    "secteur": "Agro-alimentaire",
+    "images": [
+      "/products/bottle_decorative_clear.jpeg"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Gamme Bouteilles Eau — 25cl / 50cl / 1L",
+    "desc": "Gamme complète de bouteilles PET pour eau minérale et boissons, disponibles en trois formats : 25cl, 50cl et 1L. Bouchon vert standard. Fabriquées avec un PET alimentaire certifié, légères et résistantes. Idéales pour les unités de production d'eau et les distributeurs.",
+    "categorie": "agro",
+    "secteur": "Agro-alimentaire",
+    "images": [
+      "/products/bottles_water_range.jpeg"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Bidon PET 5L — Bouchon Rouge",
+    "desc": "Grand bidon PET transparent de 5 litres avec bouchon rouge à large diamètre et poignée intégrée. Corps à nervures horizontales pour une rigidité maximale. Utilisé pour l'eau, les huiles, les produits ménagers ou industriels. Résistant aux chocs et empilable.",
+    "categorie": "agro",
+    "secteur": "Agro-alimentaire",
+    "images": [
+      "/products/bidon_5l_red.jpeg"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Bouteilles Huile d'Olive — 1L / 50cl / 25cl",
+    "desc": "Bouteilles PET à nervures verticales et horizontales, spécialement conçues pour le conditionnement de l'huile d'olive et des huiles alimentaires. Disponibles en formats 1L, 50cl et 25cl avec bouchon vert. La forme ergonomique facilite la prise en main et le versement.",
+    "categorie": "agro",
+    "secteur": "Agro-alimentaire",
+    "images": [
+      "/products/bottles_olive_oil.jpeg"
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Bouteilles Huile Remplies — Gamme Marché",
+    "desc": "Bouteilles PET nervurées remplies d'huile alimentaire dorée, disponibles en 1L, 50cl et 25cl. Ces bouteilles sont produites localement au Maroc et distribuées dans les marchés traditionnels et grandes surfaces. Bouchon vert garantissant l'étanchéité et la fraîcheur du produit.",
+    "categorie": "agro",
+    "secteur": "Agro-alimentaire",
+    "images": [
+      "/products/bottles_oil_filled.jpeg"
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Bouteilles Jus Slim 33cl — Rouge & Orange",
+    "desc": "Bouteilles PET format slim de 33cl, au design cylindrique élancé, avec bouchons colorés rouge et orange. Transparentes et légères, elles mettent en valeur la couleur naturelle des boissons. Parfaites pour jus de fruits, boissons énergisantes et smoothies. Bouchon large facilite le remplissage.",
+    "categorie": "agro",
+    "secteur": "Agro-alimentaire",
+    "images": [
+      "/products/bottles_juice_slim.jpeg"
+    ]
+  }
   ]
   
