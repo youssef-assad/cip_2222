@@ -1,125 +1,92 @@
 import React from "react";
-import "./footer.css";
 import { Link } from "react-router-dom";
+import "./footer.css";
+
+const sectors = [
+  { label: "Plasturgie", to: "/" },
+  { label: "Industrie", to: "/" },
+  { label: "Mobilier médical", to: "/" },
+  { label: "Agro-Alimentaire", to: "/" },
+  { label: "Décoration Int/Ext", to: "/" },
+];
+
+const quickLinks = [
+  { label: "Home", to: "/" },
+  { label: "About Us", to: "/about" },
+  { label: "Contact Us", to: "/contact" },
+  { label: "Products", to: "/list_products" },
+];
+
+const socialLinks = [
+  { icon: "icon-social-facebook", to: "https://web.facebook.com/abdellah.assad.5", label: "Facebook" },
+  { icon: "icon-envelope", to: "mailto:cip.industrie@gmail.com", label: "Email" },
+  { icon: "icon-whatsapp", to: "https://wa.me/212661946011", label: "WhatsApp" },
+  { icon: "icon-social-linkedin", to: "https://www.linkedin.com/in/abdellah-assad-767970181/", label: "LinkedIn" },
+];
+
 function Footer() {
   return (
     <footer className="site-footer">
-      <div className="container">
-        <div className="row">
-          <div className="col-sm-12 col-md-6">
-            <h6>About</h6>
-            <p className="text-justify">
-              cip.ma{" "}
-              <i>
-                <span>
-                  Chaudro <span className="industrie" >Industrie</span> Plast
-                </span>
-                , s'engage solennellement à offrir des produits de qualité
-                supérieure, à des prix raisonnables, avec un service impeccable
-                et une réputation de haute estime. Nous remercions nos amis de
-                tous horizons pour leur soutien et leur affection.{" "}
-              </i>
-            </p>
-          </div>
-
-          <div className="col-xs-6 col-md-3">
-            <h6>Secteurs</h6>
-            <ul className="footer-links">
-              <li>
-                <Link to="http://scanfcode.com/category/front-end-development/">
-                  PLASTURGIE
-                </Link>
-              </li>
-              <li>
-                <Link to="http://scanfcode.com/category/back-end-development/">
-                  INDUSTRIE
-                </Link>
-              </li>
-              <li>
-                <Link to="http://scanfcode.com/category/java-programming-language/">
-                  Mobilier médical
-                </Link>
-              </li>
-              <li>
-                <Link to="http://scanfcode.com/category/android/">
-                  Agro-Alimentaire
-                </Link>
-              </li>
-              <li>
-                <Link to="http://scanfcode.com/category/templates/">
-                  DÉCORATION INTER/EXTER
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div className="col-xs-6 col-md-3">
-            <h6>Quick Links</h6>
-            <ul className="footer-links">
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/about">About Us</Link>
-              </li>
-              <li>
-                <Link to="/contact">Contact Us</Link>
-              </li>
-              <li>
-                <Link to="/products">Products</Link>
-              </li>
-              <li>
-                <Link to="http://scanfcode.com/sitemap/">Sitemap</Link>
-              </li>
-            </ul>
-          </div>
+      <div className="footer-top">
+        {/* About */}
+        <div className="footer-col footer-about">
+          <h6>About</h6>
+          <p>
+            <strong>cip.ma</strong> —{" "}
+            <em>
+              <span className="brand-name">
+                Chaudro <span className="industrie">Industrie</span> Plast
+              </span>
+            </em>
+            , s'engage à offrir des produits de qualité supérieure, à des prix
+            raisonnables, avec un service impeccable et une réputation de haute
+            estime.
+          </p>
         </div>
-        <hr />
+
+        {/* Sectors */}
+        <div className="footer-col">
+          <h6>Secteurs</h6>
+          <ul className="footer-links">
+            {sectors.map((s) => (
+              <li key={s.label}>
+                <Link to={s.to}>{s.label}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Quick Links */}
+        <div className="footer-col">
+          <h6>Quick Links</h6>
+          <ul className="footer-links">
+            {quickLinks.map((l) => (
+              <li key={l.label}>
+                <Link to={l.to}>{l.label}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
-      <div className="container">
-        <div className="row">
-          <div className="col-md-8 col-sm-6 col-xs-12">
-            <p className="copyright-text">
-              Copyright &copy; 2024 All Rights Reserved by
-              <a style={{ textDecoration: "none" }} href="www.cip.ma">
-                {" "}
-                Cip
-              </a>
-              .
-            </p>
-          </div>
 
-          <div className="col-md-4 col-sm-6 col-xs-12">
-            <ul className="social-icons">
-              <li>
-                <Link
-                  to="https://web.facebook.com/abdellah.assad.5"
-                  target="_blank"
-                >
-                  <i className="icon-social-facebook"></i>
-                </Link>
-              </li>
-              <li>
-                <Link to="mailto:cip.industrie@gmail.com" target="_blank">
-                  <i className="icon-envelope"></i>
-                </Link>
-              </li>
-              <li>
-                <Link to="https://wa.me/212661946011" target="_blank">
-                  <i className="icon-whatsapp"></i>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="https://www.linkedin.com/in/abdellah-assad-767970181/"
-                  target="_blank"
-                >
-                  <i className="icon-social-linkedin"></i>
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
+      <hr />
+
+      {/* Bottom bar */}
+      <div className="footer-bottom">
+        <p className="copyright-text">
+          &copy; {new Date().getFullYear()} All Rights Reserved —{" "}
+          <a href="https://www.cip.ma">CIP</a>
+        </p>
+
+        <ul className="social-icons">
+          {socialLinks.map((s) => (
+            <li key={s.label}>
+              <Link to={s.to} target="_blank" rel="noopener noreferrer" aria-label={s.label}>
+                <i className={s.icon} />
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
     </footer>
   );
