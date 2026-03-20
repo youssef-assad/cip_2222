@@ -1,0 +1,371 @@
+.about-page {
+  padding: 20px;
+}
+/* about cip flex  */
+.about-section {
+  margin: 100px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  position: relative;
+}
+
+/* left section (logo+icon) */
+.about-left {
+  flex-basis: 40%;
+  position: relative;
+}
+
+.about-img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.icon-play {
+  width: 60px;
+  font-size: 70px;
+  /* color: var(--light-gray); */
+  position: absolute;
+  top: 41%;
+  left: 50%;
+  transform: translate(-44%, -99%);
+  cursor: pointer;
+}
+
+/* right section (titre+sous titre+button)   */
+
+.about-right {
+  flex-basis: 56%;
+}
+
+.about-right h2 {
+  font-weight: 600;
+  font-size: 60px;
+  color: #000000;
+}
+
+.about-page .title-about {
+  /* margin-top: 30px; */
+  font-size: 35px;
+  /* color: #000f38; */
+  margin: 20px 0;
+  /* max-width: 500px; */
+  color: #1743bb;
+  text-align: center;
+}
+
+.about-page h1 span {
+  color: var(--red);
+  font-size: 37px;
+  border-bottom: 2px solid var(--blue-fonce);
+}
+.about-right p {
+  color: #676767;
+  margin-bottom: 15px;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--fade-duration, 0.6s) ease-out,
+    transform var(--fade-duration, 0.6s) ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: var(--fade-delay, 0.5s);
+}
+
+.fade-in.exiting {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--fade-duration, 0.9s) ease-out,
+    transform var(--fade-duration, 0.9s) ease-out;
+}
+
+/* about.css */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+/* button style (voir catalogue) */
+.button_pdf {
+  position: relative;
+  width: 160px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border: 1px solid #17795e;
+  background-color: #209978;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.button_pdf,
+.button__icon,
+.button__text {
+  transition: all 0.3s;
+}
+
+.button_pdf .button__text {
+  transform: translateX(7px);
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  text-decoration: none;
+}
+
+.button_pdf .button__icon {
+  position: absolute;
+  transform: translateX(120px);
+  height: 100%;
+  width: 39px;
+  background-color: #17795e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.button_pdf .svg {
+  width: 20px;
+  fill: #fff;
+}
+
+.button_pdf:hover {
+  background: #17795e;
+}
+
+.button_pdf:hover .button__text {
+  color: transparent;
+}
+
+.button_pdf:hover .button__icon {
+  width: 148px;
+  transform: translateX(0);
+}
+
+.button_pdf:active .button__icon {
+  background-color: #146c54;
+}
+
+.button_pdf:active {
+  border: 1px solid #146c54;
+}
+
+/* section pourquoi nous  */
+
+.why-choose-us {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2.4px 4px rgba(0, 0, 0, 0.3);
+}
+
+.why-choose-us h2 {
+  /* color: #007acc; */
+  color: var(--blue-clair);
+  font-size: 1.8em;
+  margin-bottom: 10px;
+}
+.why-choose-us h2 span {
+  padding-bottom: 6px;
+  border-bottom: 1px solid red;
+}
+
+.why-choose-us p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  font-family: monospace;
+}
+
+.section-philosophy {
+  position: relative;
+  text-align: center;
+  background-position: center;
+  background-size: cover;
+  background: url("/src/assets/carousel/carousel1.jpeg");
+  background-attachment: fixed;
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0; /* Optional padding for top and bottom spacing */
+}
+
+.philosophy {
+  background: rgba(0, 0, 0, 0.671);
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  width: 80%;
+  box-sizing: border-box;
+}
+.philosophy li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 10px;
+}
+.list-philosophy {
+  list-style-type: none;
+  padding: 0;
+}
+.icon-checkmark {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fd5a76; /* Color of the icon */
+}
+
+.strengths {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  padding-top: 20px;
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  /* border: 0.1px solid black; */
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.strengths h2 {
+  font-family: noto;
+  text-align: center;
+  font-size: 30px;
+  text-shadow: 3px 3px 10px var(--blue-fonce);
+}
+
+.strengths ul {
+  list-style-type: none; /* Remove default bullets */
+  padding: 0;
+  width: 80%;
+}
+
+.strengths ul li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 10px;
+}
+
+.strengths ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #dc162ac2; /* Customize circle color */
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: translateY(-50%) scale(1);
+  }
+  50% {
+    transform: translateY(-50%) scale(1.5);
+    border: 0.5px solid #f50303;
+  }
+}
+
+.list-group-item {
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.list-group-item.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.list-group-item.delay-1 {
+  animation-delay: 0.2s;
+}
+
+.list-group-item.delay-2 {
+  animation-delay: 0.4s;
+}
+
+.list-group-item.delay-3 {
+  animation-delay: 0.6s;
+}
+
+.list-group-item.delay-4 {
+  animation-delay: 0.8s;
+}
+
+.list-group-item.delay-5 {
+  animation-delay: 1s;
+}
+
+@media (max-width: 700px) {
+  .about-section {
+    display: block;
+    text-align: center;
+  }
+
+  .about-left {
+    margin-bottom: 20px;
+  }
+  .icon-play {
+    position: absolute;
+    top: 41%;
+    left: 50.2%;
+    transform: translate(-44%, -99%);
+  }
+  .about-right h2 {
+    font-size: 40px;
+  }
+
+  .about-right h1 {
+    font-size: 25px;
+  }
+
+  .about-right h1 span {
+    font-size: 27px;
+  }
+  .section-philosophy {
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+  .philosophy {
+    box-shadow: 0px 0px 10px black;
+  }
+  .strengths {
+    margin-top: 20px;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .strengths ul {
+    width: 100%;
+  }
+
+  .strengths ul li {
+    padding-left: 20px;
+    margin-bottom: 8px;
+  }
+
+  .strengths ul li::before {
+    width: 8px;
+    height: 8px;
+  }
+}

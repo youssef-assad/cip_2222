@@ -1,0 +1,37 @@
+[
+    {
+      "id": 1,
+      "title": "",
+      "desc": "helooooo dessssccccccccc loremmmmmmmmmm looooooooooooooooooo oooooooooooooooooooooooo oooooooooooooooooooooooowwwwwww wwww wwwwwwwwwwwwwwwwwww wwwwwwwwwwwwwwwwwwwww wwwww",
+      "categorie": "agro",
+      "secteur": "agro-alimentaire",
+      "images": [
+        "/products/image2.jpg",
+        "/products/image2.jpg",
+        "/products/image3.jpg"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "sis",
+      "desc": "helooooo dessssccccccccc loremmmmmmmmmm",
+      "categorie": "medical",
+      "images": [
+        "/products/image2.jpg",
+        "/products/image2.jpg",
+        "/products/image2.jpg"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "melangeur",
+      "desc": "helooooo dessssccccccccc loremmmmmmmmmm",
+      "categorie": "medical",
+      "images": [
+        "/products/image2.jpg",
+        "/products/image2.jpg",
+        "/products/image2.jpg"
+      ]
+    }
+  ]
+  

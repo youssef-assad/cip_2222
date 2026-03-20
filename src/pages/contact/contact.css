@@ -1,0 +1,204 @@
+.contact-container {
+    position: relative;
+    isolation: isolate;
+  }
+  
+  .contact-container::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    opacity: 0.3;
+    background: rgba(29, 29, 30, 0.744);
+    background: url('/logos/cip_logo.jpg') no-repeat center center fixed;
+    background-size: 70% 100%;
+    background-attachment: fixed;
+    background-position: center;
+  }
+  
+
+  
+  
+  
+  .contact-wrapper .contact-content p {
+    margin: 0;
+    color: #333;
+  }
+  
+  .contact-form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .contact-form-title {
+    /* color: #ff6347; Tomato color */
+    color: var(--blue-clair);
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .contact-form-subtitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+  
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .contact-form-row {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .contact-input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    outline: none;
+    box-shadow: 0.5px 1.3px 3px gray;
+  }
+  .contact-input:focus {
+    border: 1px solid #f2725ba6;
+    box-shadow: 0.5px 1.3px 3px #cc604dc6;
+
+  }
+  .contact-textarea {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    height: 150px;
+    resize: vertical;
+    outline: none;
+    box-shadow: 0.5px 1.3px 3px gray;
+
+  }
+  .contact-textarea:focus {
+    border: 1px solid #ff6347;
+
+  }
+  
+  .contact-submit-button {
+    padding: 0.75rem 1.5rem;
+    background-color: #ff6347;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .contact-submit-button:hover {
+    background-color: #b43825; /* Slightly darker tomato color */
+  }
+  
+  .contact-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .contact-header {
+    margin-bottom: 2rem;
+  }
+  
+  .contact-subtitle {
+    color: #ff6347; /* Tomato color */
+    color: blue;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .contact-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+  
+  .contact-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+  }
+  
+  .map-container {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+  }
+  
+  .contact-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 300px;
+  }
+  
+  .contact-info-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+  
+  .contact-info-item i {
+    font-size: 1.5rem;
+    color: #ec0c0c; /* Tomato color */
+  }
+
+  
+  .contact-info-item h4 {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+  
+  .contact-info-item p {
+    margin: 0;
+    color: #666;
+  }
+  
+
+  
+  /* Responsive styles */
+  @media (max-width: 700px) {
+    .contact-content {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .map-container {
+      width: 90%;
+    }
+  
+    .contact-info {
+      width: 100%;
+    }
+  
+    .contact-form-row {
+      flex-direction: column;
+    }
+    .toaster{
+      bottom: 10px;
+      width: 50%;
+    }
+  }
+  

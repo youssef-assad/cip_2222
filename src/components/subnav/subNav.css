@@ -1,0 +1,63 @@
+.custom-sub-navbar {
+  background: var(--blue-fonce);
+  color: #ffffff; /* Blanc pour le texte */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 2rem; /* Ajout de padding pour l'espacement */
+  font-family: "Roboto", sans-serif; /* Police moderne et lisible */
+}
+
+.custom-contact-nav {
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.custom-contact-nav li {
+  display: flex;
+  align-items: center;
+  margin: 0 1rem; /* Espacement entre les éléments */
+}
+
+.custom-contact-nav li a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: 0.3s ease-in-out;
+}
+
+.custom-contact-nav li a:hover {
+  color: var(--red);
+  /* font-size: 0.9rem; */
+}
+
+.custom-contact-nav li span {
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.all-icons {
+  display: flex;
+  align-items: center;
+}
+
+.all-icons span {
+  margin-left: 1rem; /* Espacement entre les icônes */
+  cursor: pointer;
+  font-size: 1.5rem; /* Taille des icônes */
+  color: #ffffff; /* Couleur des icônes */
+}
+
+.all-icons span:hover {
+  color: #3399ff; /* Couleur au survol */
+}
+
+@media (max-width: 700px) {
+  .custom-sub-navbar {
+    display: none;
+  }
+}
