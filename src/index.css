@@ -112,36 +112,17 @@ html {
 }
 
 
+/* ─── Responsive ────────────────────────────────────────── */
 @media (max-width: 700px) {
+  body {
+    /* SubNav is hidden on mobile */
+    padding-top: 10px;
+  }
+
   .fixedcon {
     display: block;
-    position: fixed;
     opacity: 0.8;
     bottom: 50px;
     left: 20px;
   }
-  body{
-    width: 100%;
-  }
-
 }
-
-/* body::-webkit-scrollbar {
-  width: 12px;
-}
-
-body::-webkit-scrollbar-track {
-  background: var(--scrollbar-bg); 
-}
-
-body::-webkit-scrollbar-thumb {
-  background-color: var(--scrollbar-thumb); 
-  border-radius: 6px;
-  border: 3px solid var(--scrollbar-bg); 
-}
-
-body::-webkit-scrollbar-thumb:hover {
-  background-color: var(
-    --scrollbar-thumb-hover
-  );
-} */

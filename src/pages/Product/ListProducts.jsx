@@ -1,6 +1,4 @@
-/* eslint-disable react/no-unescaped-entities */
-/* eslint-disable react/prop-types */
-import  { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { Link, useParams } from "react-router-dom";
 import Products from "../../products.json";
 import "./listproducts.css";
@@ -37,7 +35,6 @@ function ProductCard({ p, index }) {
       </div>
       <div className="pc-body">
         <h3>{p.title || "Sans titre"}</h3>
-        <p>{p.desc}</p>
         <div className="pc-footer">
           <span className="pc-cat">{p.categorie}</span>
           <span className="pc-arrow">
