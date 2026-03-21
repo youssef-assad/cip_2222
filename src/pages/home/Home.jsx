@@ -53,7 +53,6 @@ const testimonials = [
   { name: "Karim Alaoui",  role: "Chef de projet agro",  text: "Réactivité, professionnalisme et expertise — CIP est un partenaire de confiance depuis 5 ans." },
 ];
 
-/* ── Sub-components ───────────────────────────────────── */
 function SectorCard({ Icon, name, link, img, index }) {
   const [ref, isVisible] = useIntersectionObserver({ threshold: 0.15 });
   return (
