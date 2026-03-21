@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/no-unescaped-entities */
 import { useRef } from "react";
 import { Link } from "react-router-dom";
@@ -9,6 +10,7 @@ import WhyChooseUs from "./WhyChoose";
 import Philosophy from "./Pedagogique";
 import Strengths from "./Fort";
 import useIntersectionObserver from "../../components/useInterSection";
+import { IconWrench, IconEnergy, IconHeart, IconSettings, IconChemistry, IconGrid } from "../../../icons";
 
 const CV = "https://drive.google.com/file/d/1Qndg-EHbqrkLkn66wmQFIfpxHWRUiL_u/view?usp=sharing";
 
@@ -20,12 +22,12 @@ const stats = [
 ];
 
 const services = [
-  { icon: "icon-wrench",       title: "Chaudronnerie",      desc: "Fabrication de cuves, citernes et équipements sur mesure." },
-  { icon: "icon-energy",       title: "Électromécanique",   desc: "Installation, maintenance et réparation de systèmes électromécaniques." },
-  { icon: "icon-heart",        title: "Mobilier médical",   desc: "Conception de mobilier et équipements pour le secteur médical." },
-  { icon: "icon-settings",     title: "Plasturgie",         desc: "Machines d'injection, mélangeurs et systèmes de convoyeurs." },
-  { icon: "icon-chemistry",    title: "Agro-alimentaire",   desc: "Équipements conformes aux normes de l'industrie alimentaire." },
-  { icon: "icon-grid",         title: "Décoration",         desc: "Solutions décoratives intérieures et extérieures de qualité." },
+  { Icon: IconWrench,       title: "Chaudronnerie",      desc: "Fabrication de cuves, citernes et équipements sur mesure." },
+  { Icon: IconEnergy,       title: "Électromécanique",   desc: "Installation, maintenance et réparation de systèmes électromécaniques." },
+  { Icon: IconHeart,        title: "Mobilier médical",   desc: "Conception de mobilier et équipements pour le secteur médical." },
+  { Icon: IconSettings,     title: "Plasturgie",         desc: "Machines d'injection, mélangeurs et systèmes de convoyeurs." },
+  { Icon: IconChemistry,    title: "Agro-alimentaire",   desc: "Équipements conformes aux normes de l'industrie alimentaire." },
+  { Icon: IconGrid,         title: "Décoration",         desc: "Solutions décoratives intérieures et extérieures de qualité." },
 ];
 
 function StatCard({ value, label, index }) {
@@ -42,7 +44,7 @@ function StatCard({ value, label, index }) {
   );
 }
 
-function ServiceCard({ icon, title, desc, index }) {
+function ServiceCard({ Icon, title, desc, index }) {
   const [ref, isVisible] = useIntersectionObserver({ threshold: 0.15 });
   return (
     <div
@@ -51,7 +53,7 @@ function ServiceCard({ icon, title, desc, index }) {
       style={{ transitionDelay: `${index * 0.1}s` }}
     >
       <div className="service-icon-wrap">
-        <i className={icon} />
+        <Icon size={24} />
       </div>
       <h4>{title}</h4>
       <p>{desc}</p>

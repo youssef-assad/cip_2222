@@ -1,10 +1,10 @@
 import useIntersectionObserver from "../../components/useInterSection";
 
 const reasons = [
-  { icon: "icon-star",         title: "Qualité supérieure",    desc: "Des produits fabriqués selon les normes les plus strictes de l'industrie." },
-  { icon: "icon-tag",          title: "Prix raisonnables",     desc: "Le meilleur rapport qualité-prix sans compromis sur l'excellence." },
-  { icon: "icon-people",       title: "Service impeccable",    desc: "Une équipe dédiée à votre satisfaction à chaque étape du projet." },
-  { icon: "icon-badge",        title: "Réputation solide",     desc: "Plus de 15 ans de confiance et de partenariats durables au Maroc." },
+  { Icon: "icon-star",         title: "Qualité supérieure",    desc: "Des produits fabriqués selon les normes les plus strictes de l'industrie." },
+  { Icon: "icon-tag",          title: "Prix raisonnables",     desc: "Le meilleur rapport qualité-prix sans compromis sur l'excellence." },
+  { Icon: "icon-people",       title: "Service impeccable",    desc: "Une équipe dédiée à votre satisfaction à chaque étape du projet." },
+  { Icon: "icon-badge",        title: "Réputation solide",     desc: "Plus de 15 ans de confiance et de partenariats durables au Maroc." },
 ];
 
 function WhyChooseUs() {
