@@ -3,6 +3,7 @@ import GoogleMap from "../../components/GoogleMap";
 import Form from "./Form";
 import "./contact.css";
 import useIntersectionObserver from "../../components/useInterSection";
+import { FaClock, FaCheck, FaStar } from "react-icons/fa";
 
 const contactList = [
   {
@@ -104,12 +105,12 @@ function Contact() {
 
           <div className="form-perks">
             {[
-              { icon: "icon-clock",     text: "Réponse sous 24h" },
-              { icon: "icon-check",     text: "Devis gratuit" },
-              { icon: "icon-star",      text: "Service personnalisé" },
+              { Icon : FaClock,     text: "Réponse sous 24h" },
+              { Icon : FaCheck,     text: "Devis gratuit" },
+              { Icon : FaStar,      text: "Service personnalisé" },
             ].map(p => (
               <div key={p.text} className="form-perk">
-                <i className={p.icon} />
+                <p.Icon />
                 <span>{p.text}</span>
               </div>
             ))}
