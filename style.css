@@ -76,3 +76,6 @@
 .icon-arrow-thin-right:before {
   content: "\e90a";
 }
+.icon-wrench:before {
+  content: "\e991";
+}
